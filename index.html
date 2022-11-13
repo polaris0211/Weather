@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-</head>
-<body>
-    <iframe width="100%" height="245" src="https://forecast.io/embed/#lat=37.5662&lon=126.9785&name=서울&color=#F6A8A6&font=Arial&units=si" frameborder="0"></iframe>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="조수아.ico" />
+    <title>조수아 딘평점수 얘측기</title>
+    <style>
+      :root {
+        --main-color: #00bbe7;
+        --background-color: #00bbe710;
+      }
+      @font-face {
+        font-family: "Happiness-Sans-Title";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Happiness-Sans-Title";
+      }
+      body {
+        position: relative;
+        background-color: var(--background-color);
+      }
+      .countBox {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px 50px;
+        box-sizing: border-box;
+        background-color: var(--main-color);
+        border-radius: 10px;
+        box-shadow: 1px 1px 15px var(--main-color);
+        width: 100%;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      h1 {
+        color: #ffffff;
+        font-size: 20px;
+      }
+      button {
+        border: 0;
+        background-color: transparent;
+      }
+      .countNumber {
+        font-size: 50px;
+        font-weight: bold;
+        color: white;
+        margin: 10px 0;
+      }
+      .countButtonWrap > button {
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        background-color: var(--main-color);
+        padding: 5px 10px;
+      }
+      .countButtonWrap > button:hover {
+        color: var(--main-color);
+        background-color: white;
+        transition: all ease 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="countBox">
+      <h1>조수아 단평점수 얘측기</h1>
+      <p class="countNumber">0</p>
+      <div class="countButtonWrap">
+        <button class="generate">단평점수 얘측</button>
+      </div>
+    </div>
+    <script>
+      let generateNum = document.querySelector(".countNumber");
+      let button = document.querySelector(".generate");
+
+      function generator() {
+        const randomNum = Math.floor(Math.random() * 23) * 2.5;
+        generateNum.innerHTML = randomNum;
+      }
+
+      button.addEventListener("click", generator);
+    </script>
+  </body>
 </html>
